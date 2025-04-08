@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.b9bc9748.css",
-    "main.js": "/portfolio/static/js/main.10a2a947.js",
+    "main.css": "/portfolio/static/css/main.d92f7b67.css",
+    "main.js": "/portfolio/static/js/main.37560c87.js",
     "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
     "static/media/CairoliNowExtended-Heavy.otf": "/portfolio/static/media/CairoliNowExtended-Heavy.0004882009c4b7af40da.otf",
     "static/media/github.png": "/portfolio/static/media/github.703a44580c3df8dc2ce6.png",
     "static/media/React.png": "/portfolio/static/media/React.17fbfdb65ddf68e3c741.png",
     "static/media/fcc.png": "/portfolio/static/media/fcc.1eecd1d91821e8e17199.png",
     "index.html": "/portfolio/index.html",
-    "main.b9bc9748.css.map": "/portfolio/static/css/main.b9bc9748.css.map",
-    "main.10a2a947.js.map": "/portfolio/static/js/main.10a2a947.js.map",
+    "main.d92f7b67.css.map": "/portfolio/static/css/main.d92f7b67.css.map",
+    "main.37560c87.js.map": "/portfolio/static/js/main.37560c87.js.map",
     "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9bc9748.css",
-    "static/js/main.10a2a947.js"
+    "static/css/main.d92f7b67.css",
+    "static/js/main.37560c87.js"
   ]
 }
