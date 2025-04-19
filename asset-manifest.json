@@ -1,19 +1,24 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.da982fb0.css",
-    "main.js": "/portfolio/static/js/main.af55f777.js",
+    "main.css": "/portfolio/static/css/main.d7839acf.css",
+    "main.js": "/portfolio/static/js/main.6f39e49f.js",
     "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
+    "static/media/landing.png": "/portfolio/static/media/landing.294c19467f47c1e74217.png",
+    "static/media/youtube.png": "/portfolio/static/media/youtube.29cdeb204b2d0aa2dd35.png",
+    "static/media/IruwinJayDadulla(Resume).pdf": "/portfolio/static/media/IruwinJayDadulla(Resume).b95dea849bcc34072b21.pdf",
     "static/media/CairoliNowExtended-Heavy.otf": "/portfolio/static/media/CairoliNowExtended-Heavy.0004882009c4b7af40da.otf",
+    "static/media/tetris.png": "/portfolio/static/media/tetris.968e14767d8cec965814.png",
     "static/media/github.png": "/portfolio/static/media/github.703a44580c3df8dc2ce6.png",
     "static/media/React.png": "/portfolio/static/media/React.17fbfdb65ddf68e3c741.png",
     "static/media/fcc.png": "/portfolio/static/media/fcc.1eecd1d91821e8e17199.png",
+    "static/media/portfolio.png": "/portfolio/static/media/portfolio.ec95364bd8071fa9caa9.png",
     "index.html": "/portfolio/index.html",
-    "main.da982fb0.css.map": "/portfolio/static/css/main.da982fb0.css.map",
-    "main.af55f777.js.map": "/portfolio/static/js/main.af55f777.js.map",
+    "main.d7839acf.css.map": "/portfolio/static/css/main.d7839acf.css.map",
+    "main.6f39e49f.js.map": "/portfolio/static/js/main.6f39e49f.js.map",
     "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.da982fb0.css",
-    "static/js/main.af55f777.js"
+    "static/css/main.d7839acf.css",
+    "static/js/main.6f39e49f.js"
   ]
 }
