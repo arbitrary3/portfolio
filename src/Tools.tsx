@@ -1,0 +1,127 @@
+import { useEffect, useRef, useState } from 'react';
+import reactIco from './assets/icons/React.png';
+import tailwindIco from './assets/icons/tailwind.png';
+import HTMLIco from './assets/icons/html.png';
+import CSSIco from './assets/icons/css.png';
+import JSIco from './assets/icons/js.png';
+import TSIco from './assets/icons/typescript.png';
+import vsIco from './assets/icons/vscode.webp';
+import nextIco from './assets/icons/next.png';
+import bootstrapIco from './assets/icons/bootstrap.png';
+import figmaIco from './assets/icons/figma.png';
+
+const items = [
+    ["React.JS", reactIco], 
+    ["Tailwind CSS", tailwindIco], 
+    ["HTML", HTMLIco], 
+    ["CSS", CSSIco],
+    ["JavaScript", JSIco], 
+    ["TypeScript", TSIco], 
+    ["Visual Code Studio", vsIco], 
+    ["Next.JS", nextIco], 
+    ["Bootstrap", bootstrapIco], 
+    ["Figma", figmaIco]
+];
+
+export default function Tools() {
+    const carouselRef = useRef(null);
+    const sectionRef = useRef(null);
+    const angleRef = useRef(0);
+    const radius = 480;
+    const [isVisible, setIsVisible] = useState(false);
+  
+    // Observe section visibility
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); // Only trigger once
+          }
+        },
+        { threshold: 0.4 }
+      );
+  
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current);
+      }
+  
+      return () => observer.disconnect();
+    }, []);
+  
+    // Carousel logic
+    useEffect(() => {
+      if (!isVisible) return;
+  
+      const itemEls = carouselRef.current.querySelectorAll('.carousel-item');
+      const itemCount = itemEls.length;
+  
+      function render() {
+        for (let i = 0; i < itemCount; i++) {
+          const theta = (360 / itemCount) * i + angleRef.current;
+          const rad = (theta * Math.PI) / 180;
+          const x = Math.sin(rad) * radius;
+          const z = Math.cos(rad) * radius;
+  
+          const scale = 0.5 + 0.5 * ((z + radius) / (2 * radius));
+          const opacity = 0.3 + 0.7 * ((z + radius) / (2 * radius));
+  
+          const el = itemEls[i];
+          el.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${theta}deg)`;
+          el.style.opacity = opacity;
+          el.style.scale = scale;
+        }
+      }
+  
+      let animationId;
+      function spin() {
+        angleRef.current += 0.1;
+        render();
+        animationId = requestAnimationFrame(spin);
+      }
+  
+      render();
+      spin();
+  
+      return () => cancelAnimationFrame(animationId);
+    }, [isVisible]);
+
+    const generateCards = array => {
+        return array.map((card,index) => {
+            return (
+                <div key={index} className="hover:scale-105 transform transition-transform duration-300 flex flex-col gap-[30px] items-center w-[320px] bg-[#3a1a92]/80 px-[30px] pt-[30px] pb-[50px] rounded-2xl">
+                    <div className="w-[80px] h-[80px] bg-white rounded-[50px] shadow-[0px_0px_60px_rgba(0,0,0,0.5)]"></div>
+                    <p className="font-bold text-[18px]">{card[0]}</p>
+                    <p className="font-[400] text-gray-500 text-[16px] text-center">{card[1]}</p>
+                </div>
+            )
+        })
+    }
+
+  return (
+    <div id="tools" ref={sectionRef} className="relative flex flex-col gap-[110px] items-center w-full h-max px-[80px] my-[80px] z-20">
+      <p className="text-[46px] font-[600] tracking-widest">Tools and Skills</p>
+
+      <div className="mb-[30px] relative flex w-full h-[160px] m-auto [perspective:1000px]">
+        <div ref={carouselRef} className="flex justify-center items-center absolute inset-0 [transform-style:preserve-3d]">
+          {items.map((item, index) => (
+            <div key={index} className="group flex flex-col justify-center items-center my-auto w-[80px] carousel-item absolute top-1/2 left-1/2 text-2xl transition-transform duration-300"
+                 style={{ transform: 'translateZ(0px)' }}
+            >
+              <p className="absolute w-max top-[-40px] text-[16px] text-white text-center font-[400] opacity-0 group-hover:opacity-100">{item[0]}</p>
+              <img src={item[1]} className={`my-auto w-[100%] object-contain transform transition-transform duration-300 ${(index===7) ? "invert" : ""}`} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex flex-wrap justify-center items-center gap-[25px] w-full p-[80px]">
+          {generateCards([
+            ["Lorem Ipsum","Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"],
+            ["Lorem Ipsum","Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"],
+            ["Lorem Ipsum","Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"],
+          ])}
+      </div>
+    </div>
+  );
+}
