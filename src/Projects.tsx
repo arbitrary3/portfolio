@@ -5,8 +5,10 @@ import portfolio from './assets/images/portfolio.png';
 
 export default function Projects() {
 
+    type ProjectsCards = [string, string, string, string, string[], ...string[]];
+
     //GENERATING PROJECTS FUNCTION
-    const generateProjects = (array: any[]) => {
+    const generateProjects = (array: ProjectsCards[]) => {
         //array arguments [project name, project description, project image, project link, tools array]
 
         return array.map((project,index) => {

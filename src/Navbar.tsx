@@ -5,8 +5,11 @@ import resume from './assets/IruwinJayDadulla(Resume).pdf';
 
 export default function Navbar() {
 
-    const generateContactsButtons = array => {
+    type ContactButton = [string, string, string];
+
+    const generateContactsButtons = (array: ContactButton[]) => {
         //array arguments [image link, link, hover message]
+
         return array.map((button,index) => {
             return (
                 <a key={index} className="relative group w-[30px] h-[30px] rounded-[50%]" href={button[1]} rel="noreferrer" target="_blank">
@@ -17,7 +20,7 @@ export default function Navbar() {
                 </a>
             )
         })
-    }
+    };
 
     return (
         <div className="fixed top-0 left-0 grid grid-cols-[30%_40%_30%] items-center w-full h-[15%] p-[20px] bg-black/70 backdrop-blur-[5px] shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-50">

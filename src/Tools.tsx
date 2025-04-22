@@ -24,7 +24,6 @@ const items = [
 ];
 
 export default function Tools() {
-    const carouselRef = useRef(null);
     const sectionRef = useRef(null);
     const angleRef = useRef(0);
     const radius = 480;
@@ -48,32 +47,36 @@ export default function Tools() {
   
       return () => observer.disconnect();
     }, []);
+
+    const carouselRef = useRef<HTMLDivElement | null>(null);
   
     // Carousel logic
     useEffect(() => {
-      if (!isVisible) return;
-  
-      const itemEls = carouselRef.current.querySelectorAll('.carousel-item');
-      const itemCount = itemEls.length;
-  
-      function render() {
+        if (!isVisible) return;
+
+        const nodeList = carouselRef.current?.querySelectorAll<HTMLDivElement>('.carousel-item');
+        if (!nodeList) return;
+
+        const itemEls: HTMLDivElement[] = Array.from(nodeList);
+        const itemCount = itemEls.length;
+
+        function render(): void {
         for (let i = 0; i < itemCount; i++) {
-          const theta = (360 / itemCount) * i + angleRef.current;
-          const rad = (theta * Math.PI) / 180;
-          const x = Math.sin(rad) * radius;
-          const z = Math.cos(rad) * radius;
-  
-          const scale = 0.5 + 0.5 * ((z + radius) / (2 * radius));
-          const opacity = 0.3 + 0.7 * ((z + radius) / (2 * radius));
-  
-          const el = itemEls[i];
-          el.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${theta}deg)`;
-          el.style.opacity = opacity;
-          el.style.scale = scale;
+            const theta = (360 / itemCount) * i + angleRef.current;
+            const rad = (theta * Math.PI) / 180;
+            const x = Math.sin(rad) * radius;
+            const z = Math.cos(rad) * radius;
+
+            const scale = 0.5 + 0.5 * ((z + radius) / (2 * radius));
+            const opacity = 0.3 + 0.7 * ((z + radius) / (2 * radius));
+
+            const el = itemEls[i];
+            el.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${theta}deg) scale(${scale})`;
+            el.style.opacity = `${opacity}`;
         }
-      }
+        }
   
-      let animationId;
+      let animationId: number;
       function spin() {
         angleRef.current += 0.1;
         render();
@@ -86,7 +89,7 @@ export default function Tools() {
       return () => cancelAnimationFrame(animationId);
     }, [isVisible]);
 
-    const generateCards = array => {
+    const generateCards = (array: string[][]) => {
         return array.map((card,index) => {
             return (
                 <div key={index} className="hover:scale-105 transform transition-transform duration-300 flex flex-col gap-[30px] items-center w-[320px] bg-[#3a1a92]/80 px-[30px] pt-[30px] pb-[50px] rounded-2xl">

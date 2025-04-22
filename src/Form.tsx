@@ -1,14 +1,13 @@
-import { useState, useRef } from 'react';
-import ReCAPTCHA from "react-google-recaptcha";
+//import { useState } from 'react';
+//import ReCAPTCHA from "react-google-recaptcha";
 
 const sitekey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 
 export default function Form() {
-    const recaptcha = useRef(null);
-    const [captchaToken, setCaptchaToken] = useState(null);
+    //const [captchaToken, setCaptchaToken] = useState(null);
 
-    const handleSubmit = (e) => {
+    /*const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!captchaToken) {
             alert("Please complete the reCAPTCHA.");
@@ -16,7 +15,7 @@ export default function Form() {
         }
         const form = document.getElementById("form") as HTMLFormElement;
         form.submit();
-    }
+    }*/
 
     return (
         <div className="relative flex flex-col gap-[50px] w-full py-[140px]">
@@ -30,7 +29,7 @@ export default function Form() {
             <form id="form" className="flex flex-col gap-[30px] space-y-4 w-[400px] mx-auto z-20" 
                 action="https://formspree.io/f/xovdapba" 
                 method="POST"
-                onSubmit={handleSubmit}
+                //onSubmit={handleSubmit}
             >
                 <div className="flex flex-col gap-[20px]">
                     <div>
@@ -49,7 +48,7 @@ export default function Form() {
                     </div>
                 </div>
 
-                <ReCAPTCHA sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} onChange={setCaptchaToken} onExpired={() => setCaptchaToken(null)} />
+                {/*<ReCAPTCHA sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} onChange={setCaptchaToken} onExpired={() => setCaptchaToken(null)} />*/}
 
                 <button type="submit" 
                         className="g-recaptcha relative w-[40%] text-[18px] overflow-hidden transform transition-transform duration-300 group btn-primary font-bold rounded-[30px] py-3 px-[50px] text-gray-300 border border-transparent hover:border-gray-300 hover:scale-115"
