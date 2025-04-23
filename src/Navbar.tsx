@@ -3,11 +3,22 @@ import linkedin from './assets/icons/linkedin.png';
 import logo from './assets/images/logo.png';
 import resume from './assets/IruwinJayDadulla(Resume).pdf';
 
+import { useState, useEffect } from 'react';
+
 type TypeScreenMode = { screenMode: number; }
 
 export default function Navbar({ screenMode }: TypeScreenMode) {
+    const [menuVisible, isMenuVisible] = useState(false);
 
     type ContactButton = [string, string, string];
+
+    useEffect(() => {
+        if (screenMode < 3) { isMenuVisible(false); } //If the Navbar doesn't have the Menu button, then remove the Menu screen
+    },[screenMode])
+    
+    const toggleMenu = () => {
+        if (menuVisible == true) { isMenuVisible(false); } else { isMenuVisible(true); }
+    }
 
     const generateContactsButtons = (array: ContactButton[]) => {
         //array arguments [image link, link, hover message]
@@ -25,10 +36,9 @@ export default function Navbar({ screenMode }: TypeScreenMode) {
     };
 
     return (
-        <div className={`${screenMode > 0 ? "grid grid-cols-[20%_60%_20%]" : "grid grid-cols-[30%_40%_30%]"} fixed top-0 left-0 items-center w-full h-[15%] p-4 bg-black/70 backdrop-blur-[5px] shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-50`}>
+        <div className={`${screenMode > 0 ? "flex justify-between" : "grid grid-cols-[30%_40%_30%]"} fixed top-0 left-0 items-center w-full h-[15%] p-4 bg-black/70 backdrop-blur-[5px] shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-50`}>
             {/*At lower screen resolutions, only show the logo plus the menu button*/}
             
-            {screenMode <= 2 ? null: <div></div>} {/*This is just something to put as the 1st element in lower resolution devices. So the logo will be centered and the menu button is at the right side*/}
             
             {/*Appears as 1st element on higher resolutions. Appears as 2nd element in lower resolutions*/}
             <a id="logo" href="https://arbitrary3.github.io/portfolio" 
@@ -77,13 +87,47 @@ export default function Navbar({ screenMode }: TypeScreenMode) {
                             </span>
                         </button>
                     ) : (
-                        <button className="px-3 flex justify-end w-[100%] h-[30px]">
+                        <button className="px-3 flex justify-end w-[100%] h-[30px]"
+                                onClick={toggleMenu}
+                        >
                             <div className="material-symbols-outlined hover:scale-150 scale-140 cursor-pointer my-auto">
                                 menu
                             </div>
                         </button>
                     )
                 )
+            }
+
+            {menuVisible === true ? (
+                <div className="fixed flex flex-col justify-between gap-[0px] top-[15vh] w-full h-[78vh] bg-black/70 backdrop-blur-[5px] p-12">
+                    <div></div>
+                    
+                    <nav id="navbar" className={`flex flex-col justify-start gap-[20px] items-center w-full text-[25px] font-bold p-6`}>
+                        <a href="#about" onClick={() => toggleMenu()}  className="shadow(2px_2px_4px_#000000) hover:text-white hover:scale-130 transform transition-all duration-300">About</a>
+                        <a href="#tools" onClick={() => toggleMenu()} className="hover:text-white hover:scale-130 transform transition-all duration-300">Tools</a>
+                        <a href="#projects" onClick={() => toggleMenu()} className="hover:text-white hover:scale-130 transform transition-all duration-300">Projects</a>
+                        <a href="#contact" onClick={() => toggleMenu()} className="hover:text-white hover:scale-130 transform transition-all duration-300">Contact</a>
+                    </nav>
+
+                    <div id="contacts" className="flex justify-center items-center gap-[50px]">
+                        <div className="flex gap-[20px]">
+                            {generateContactsButtons([
+                                [github, "https://github.com/arbitrary3", "GitHub page"],
+                                [linkedin, "https://www.linkedin.com/in/iruwin-jay-dadulla-402a90331/", "LinkedIn page"]
+                            ])}
+                        </div>
+                        <div className="group">
+                            <button className="relative overflow-hidden transform transition-transform duration-300 group btn-primary font-bold rounded-[30px] py-2 px-4 text-gray-300 border border-transparent hover:border-gray-300 hover:scale-115"
+                                    onClick={() => window.open(resume, "_blank")}
+                            >
+                                <span className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0"></span>
+                                <span className="relative z-10 group-hover:text-gray-800 transition-colors duration-300">
+                                    See my Resume
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>) : null
             }
         </div>
     )

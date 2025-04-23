@@ -18,9 +18,9 @@ export default function Projects({ screenMode }: TypeScreenMode) {
                 <div  key={index} className={`${screenMode >= 3 ? "p-6" : "max-w-[500px] p-[35px] "} flex flex-col justify-between gap-[3em] rounded-[10px] w-full bg-projectbackground shadow-[0_0_20px_#000000)] transform transition-transform duration-300`}>
                     <a className="flex flex-col justify-between gap-[3em]" href={project[3]} rel="noreferrer" target="_blank">
                         <img className="hover:scale-135 hover:rounded-none transform transition-transform duration-400 w-full rounded-lg bg-white shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-10" src={project[2]} />
-                        <div className="leading-[2em]">
+                        <div className="flex flex-col gap-[20px] leading-[2em]">
                             <p className="text-[25px] font-bold">{project[0]}</p>
-                            <p className="font-extralight text-gray-400">{project[1]}</p>
+                            <p className="font-extralight text-gray-400 leading-5">{project[1]}</p>
                         </div>
                     </a>
                     <div className="flex flex-wrap gap-[10px]">
@@ -46,17 +46,17 @@ export default function Projects({ screenMode }: TypeScreenMode) {
     //RENDERING
     return (
         <div id="projects" className="flex flex-col gap-[80px] justify-center items-center w-full h-max my-[140px] z-20 p-7">
-            <div className="flex flex-col justify-center">
-                <p className="text-[46px] font-[600] tracking-widest text-center">Projects</p>
-                <p className="text-[20px] font-[300] text-center text-gray-500">These are the personal projects I've worked on to show my skills. I plan to make more and post it here.</p>
+            <div className="flex flex-col gap-[5px] justify-center">
+                <p className={`${screenMode >= 3 ? "text-3xl" : "text-[46px]"} font-[600] tracking-widest text-center`}>Projects</p>
+                <p className={`${screenMode >= 3 ? "text-1xl text-left" : "text-[20px] text-center"} font-[300] text-gray-500`}>These are the personal projects I've worked on to show my skills. I plan to make more and post it here.</p>
             </div>
 
             <div className="flex flex-wrap justify-center gap-[60px]">
                 {generateProjects([
-                    ["YouTube Clone", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", youtube,"https://arbitrary3.github.io/youtube-homepage",["ReactJS","Responsive Web Design","Tailwind CSS", "JavaScript"]],
-                    ["Tetris game", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", tetris, "https://arbitrary3.github.io/tetris", ["ReactJS","Responsive Web Design","Tailwind CSS", "JavaScript"]],
-                    ["Restaurant Landing Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", landing, "https://arbitrary3.github.io/seafood-and-grills", ["ReactJS","Responsive Web Design","Tailwind CSS", "JavaScript"]],
-                    ["My Portfolio Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", portfolio, "https://arbitrary3.github.io/portfolio", ["ReactJS","Responsive Web Design","Tailwind CSS", "JavaScript"]],
+                    ["YouTube Clone", "A clone of the official YouTube homepage.  Videos shown on the homepage changes based on the current trending videos.", youtube,"https://arbitrary3.github.io/youtube-homepage",["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS"]],
+                    ["Tetris game", "Made using ReactJS framework. The game controls are designed to be smooth and fast-paced for a better gaming experience.", tetris, "https://arbitrary3.github.io/tetris", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS", "Game Development"]],
+                    ["Restaurant Landing Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", landing, "https://arbitrary3.github.io/seafood-and-grills", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS"]],
+                    ["My Portfolio Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", portfolio, "https://arbitrary3.github.io/portfolio", ["HTML", "CSS", "TypeScript", "ReactJS","Responsive Web Design","Tailwind CSS", "UI/UX"]],
                 ])}
             </div>
         </div>

@@ -53,7 +53,7 @@ export default function Form({ screenMode }: TypeScreenMode) {
                 {/*<ReCAPTCHA sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY} onChange={setCaptchaToken} onExpired={() => setCaptchaToken(null)} />*/}
 
                 <button type="submit" 
-                        className="self-start relative w-[40%] text-[18px] overflow-hidden transform transition-transform duration-300 group btn-primary font-bold rounded-[30px] py-3 px-[50px] text-gray-300 border border-transparent hover:border-gray-300 hover:scale-115"
+                        className={`${screenMode >= 3 ? "self-end" : "self-start"} relative w-[40%] text-[18px] overflow-hidden transform transition-transform duration-300 group btn-primary font-bold rounded-[30px] py-3 px-[50px] text-gray-300 border border-transparent hover:border-gray-300 hover:scale-115`}
                         data-sitekey={sitekey}
                         data-callback="handleSubmit"
                         data-action="submit"

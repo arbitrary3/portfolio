@@ -35,10 +35,10 @@ function App() {
   return (
     <>
       <div className="relative flex flex-col gap-[30px] text-white w-full h-full overflow-x-hidden">
-        <img className={`${screenMode >= 3 ? "scale-280" : "w-full"} fixed top-0 left-0 z-0 opacity-30`} 
+        <img className={`${screenMode >= 3 ? "scale-300" : "w-full top-0 left-0"} fixed z-0 opacity-30`} 
              src={background} 
         />
-        <p className="fixed top-0 left-1 z-500 font-bold">{`screenMode: ${screenMode}; screenSize: ${window.screen.width}`}</p>
+        {/*<p className="fixed top-0 left-1 z-500 font-bold">{`screenMode: ${screenMode}; screenSize: ${window.screen.width}`}</p>*/}
         <div className="flex flex-col w-[100%] h-max z-50">
           <Navbar screenMode={screenMode} />
         </div>
