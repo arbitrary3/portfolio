@@ -8,4 +8,8 @@ export default defineConfig({
     react(),
     tailwindcss() as unknown as import('vite').PluginOption
   ],
+  base: '/portfolio/',
+  server: {
+    host: true//192.168.0.107
+  }
 })

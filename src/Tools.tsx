@@ -23,11 +23,14 @@ const items = [
     ["Figma", figmaIco]
 ];
 
-export default function Tools() {
+type TypeScreenMode = { screenMode: number; }
+
+export default function Tools({ screenMode }: TypeScreenMode) {
     const sectionRef = useRef(null);
     const angleRef = useRef(0);
-    const radius = 480;
+    const radius = 400;
     const [isVisible, setIsVisible] = useState(false);
+    const [introDone, setIntroDone] = useState(false);
   
     // Observe section visibility
     useEffect(() => {
@@ -53,6 +56,7 @@ export default function Tools() {
     // Carousel logic
     useEffect(() => {
         if (!isVisible) return;
+        if (screenMode >= 3) {return};
 
         const nodeList = carouselRef.current?.querySelectorAll<HTMLDivElement>('.carousel-item');
         if (!nodeList) return;
@@ -78,51 +82,56 @@ export default function Tools() {
   
       let animationId: number;
       function spin() {
-        angleRef.current += 0.1;
+        angleRef.current += introDone ? 0.1 : 2;
         render();
         animationId = requestAnimationFrame(spin);
       }
   
       render();
       spin();
+
+      setTimeout(() => {
+        setIntroDone(true);
+      }, 1000)
   
       return () => cancelAnimationFrame(animationId);
-    }, [isVisible]);
+    }, [isVisible, introDone, screenMode]);
 
     const generateCards = (array: string[][]) => {
         return array.map((card,index) => {
             return (
-                <div key={index} className="hover:scale-105 transform transition-transform duration-300 flex flex-col gap-[30px] items-center w-[320px] bg-[#3a1a92]/80 px-[30px] pt-[30px] pb-[50px] rounded-2xl">
+                <div key={index} className={`${screenMode >= 3 ? "" : "max-w-[320px]"} w-full hover:scale-105 transform transition-transform duration-300 h-300px] flex flex-col gap-[30px] justify-between items-center bg-[#3a1a92]/80 px-[30px] pt-[30px] pb-[50px] rounded-2xl`}>
                     <div className="w-[80px] h-[80px] bg-white rounded-[50px] shadow-[0px_0px_60px_rgba(0,0,0,0.5)]"></div>
-                    <p className="font-bold text-[18px]">{card[0]}</p>
-                    <p className="font-[400] text-gray-500 text-[16px] text-center">{card[1]}</p>
+                    <p className="font-bold text-[18px] text-center">{card[0]}</p>
+                    <p className="font-[300] text-gray-300 text-[16px] text-center">{card[1]}</p>
                 </div>
             )
         })
     }
 
   return (
-    <div id="tools" ref={sectionRef} className="relative flex flex-col gap-[110px] items-center w-full h-max px-[80px] my-[80px] z-20">
-      <p className="text-[46px] font-[600] tracking-widest">Tools and Skills</p>
+    <div id="tools" ref={sectionRef} className="relative flex flex-col gap-[110px] items-center w-full h-max my-[80px] z-20">
+      <p className="text-[46px] font-[600] tracking-widest">Tools</p>
 
-      <div className="mb-[30px] relative flex w-full h-[160px] m-auto [perspective:1000px]">
-        <div ref={carouselRef} className="flex justify-center items-center absolute inset-0 [transform-style:preserve-3d]">
-          {items.map((item, index) => (
-            <div key={index} className="group flex flex-col justify-center items-center my-auto w-[80px] carousel-item absolute top-1/2 left-1/2 text-2xl transition-transform duration-300"
-                 style={{ transform: 'translateZ(0px)' }}
-            >
-              <p className="absolute w-max top-[-40px] text-[16px] text-white text-center font-[400] opacity-0 group-hover:opacity-100">{item[0]}</p>
-              <img src={item[1]} className={`my-auto w-[100%] object-contain transform transition-transform duration-300 ${(index===7) ? "invert" : ""}`} />
-            </div>
-          ))}
-        </div>
-      </div>
+      
+        <div className="mb-[30px] relative flex w-[30vw] h-max mx-auto [perspective:1000px]">
+          <div ref={carouselRef} className="flex justify-center absolute top-0 left-[-10%] right-0 bottom-0 transform-style-preserve-3d">
+            {items.map((item, index) => (
+              <div key={index} className="carousel-item hover:scale-115 group flex flex-col justify-center items-center cursor-pointer my-auto w-[120px] h-[120px] absolute top-1/2 left-1/2 text-2xl transition-transform duration-300"
+                  style={{ transform: 'translateZ(0px)' }}
+              >
+                <p className={`absolute w-max top-[-40px] text-[16px] text-white text-center font-[400] opacity-0 group-hover:opacity-100`}>{item[0]}</p>
+                <img src={item[1]} className={`my-auto w-[80px] object-fill transform transition-transform duration-300 ${(index===7) ? "invert" : ""}`} />
+              </div>
+            ))}
+          </div>
+        </div> 
 
-      <div className="flex flex-wrap justify-center items-center gap-[25px] w-full p-[80px]">
+      <div className="flex flex-wrap justify-center items-stretch gap-[25px] w-full px-8">
           {generateCards([
-            ["Lorem Ipsum","Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"],
-            ["Lorem Ipsum","Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"],
-            ["Lorem Ipsum","Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"],
+            ["Front-End Development","I accurately build responsive websites from wireframes, mainly with ReactJS (with Vite compiler and TypeScript), and NextJS."],
+            ["UI/UX Design","I create clean, intuitive layouts that puts user experience and easier user navigation first. I approach design with a mobile first mindset."],
+            ["Testing and Debugging","Identifying issues and solving performance, and optimization issues using browser dev tools and basic testing methods."],
           ])}
       </div>
     </div>
