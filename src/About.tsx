@@ -1,6 +1,7 @@
 import fcc1 from './assets/icons/fcc1.png';
 import fcc2 from './assets/icons/fcc2.png';
 import fcc3 from './assets/icons/fcc3.png';
+import fcc4 from './assets/icons/fcc4.png';
 //import fcc from './assets/icons/fcc.png';
 
 type TypeScreenMode = { screenMode: number; }
@@ -43,7 +44,8 @@ export default function About({ screenMode }: TypeScreenMode) {
                         {generateCards([
                             ["Responsive Web Design", "FreeCodeCamp", "https://www.freecodecamp.org/certification/dadullairuwin/responsive-web-design",fcc1],
                             ["JavaScript Algorithms and Data Structures", "FreeCodeCamp", "https://www.freecodecamp.org/certification/dadullairuwin/javascript-algorithms-and-data-structures-v8",fcc2],
-                            ["Front End Development Libraries", "FreeCodeCamp", "https://www.freecodecamp.org/certification/dadullairuwin/front-end-development-libraries",fcc3]
+                            ["Front End Development Libraries", "FreeCodeCamp", "https://www.freecodecamp.org/certification/dadullairuwin/front-end-development-libraries",fcc3],
+                            ["Data Visualization", "FreeCodeCamp", "https://www.freecodecamp.org/certification/dadullairuwin/data-visualization",fcc4]
                         ])}
                     </div>
                 </div>
