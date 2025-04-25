@@ -54,10 +54,10 @@ export default function Projects({ screenMode }: TypeScreenMode) {
 
             <div className="flex flex-wrap justify-center gap-[60px]">
                 {generateProjects([
-                    ["YouTube Clone", "A clone of the official YouTube homepage.  Videos shown on the homepage changes based on the current trending videos.", youtube,"https://arbitrary3.github.io/youtube-homepage",["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS","SSR"],"https://github.com/arbitrary3/youtube-homepage/"],
-                    ["Tetris game", "Made using ReactJS framework. The game controls are designed to be smooth and fast-paced for a better gaming experience.", tetris, "https://arbitrary3.github.io/tetris", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS", "Game Development","SSR"],"https://github.com/arbitrary3/tetris"],
-                    ["Restaurant Landing Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", landing, "https://arbitrary3.github.io/seafood-and-grills", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS","SSR"],"https://github.com/arbitrary3/seafood-and-grills"],
-                    ["My Portfolio Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", portfolio, "https://arbitrary3.github.io/portfolio", ["HTML", "CSS", "TypeScript", "ReactJS","Responsive Web Design","Tailwind CSS", "UI/UX","SSR"],"https://github.com/arbitrary3/portfolio"],
+                    ["YouTube Clone", "A clone of the official YouTube homepage.  Videos shown on the homepage changes based on the current trending videos.", youtube,"https://arbitrary3.github.io/youtube-homepage",["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS","Client-Side Rendering"],"https://github.com/arbitrary3/youtube-homepage/"],
+                    ["Tetris game", "Made using ReactJS framework. The game controls are designed to be smooth and fast-paced for a better gaming experience.", tetris, "https://arbitrary3.github.io/tetris", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS", "Game Development","Client-Side Rendering"],"https://github.com/arbitrary3/tetris"],
+                    ["Restaurant Landing Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", landing, "https://arbitrary3.github.io/seafood-and-grills", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS","Client-Side Rendering", "Server-Side Rendering (future update)"],"https://github.com/arbitrary3/seafood-and-grills"],
+                    ["My Portfolio Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", portfolio, "https://arbitrary3.github.io/portfolio", ["HTML", "CSS", "TypeScript", "ReactJS","Responsive Web Design","Tailwind CSS", "UI/UX","Client-Side Rendering"],"https://github.com/arbitrary3/portfolio"],
                 ])}
             </div>
         </div>
