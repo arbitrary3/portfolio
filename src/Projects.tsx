@@ -32,7 +32,8 @@ export default function Projects({ screenMode }: TypeScreenMode) {
                             )
                         }) || null}
                     </div>
-                    <button className="transform transition-transform duration-300 hover:scale-110 hover:shadow-[20px_10px_20px_rgba(0,0,0,0.5)] relative overflow-hidden group shadow-[0_10px_30px_rgba(0,0,0,0.5)] btn-primary text-[21px] font-bold rounded-[30px] py-2 px-4 text-gray-300 border border-transparent hover:border-gray-500">
+                    <button className="transform transition-transform duration-300 hover:scale-110 hover:shadow-[20px_10px_20px_rgba(0,0,0,0.5)] relative overflow-hidden group shadow-[0_10px_30px_rgba(0,0,0,0.5)] btn-primary text-[21px] font-bold rounded-[30px] py-2 px-4 text-gray-300 border border-transparent hover:border-gray-500"
+                            onClick={() => window.open(project[5], "_blank")}>
                         <span className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0"></span>
                         <span className="relative z-10 group-hover:text-gray-800 transition-colors duration-300">
                             View Source Code
@@ -53,10 +54,10 @@ export default function Projects({ screenMode }: TypeScreenMode) {
 
             <div className="flex flex-wrap justify-center gap-[60px]">
                 {generateProjects([
-                    ["YouTube Clone", "A clone of the official YouTube homepage.  Videos shown on the homepage changes based on the current trending videos.", youtube,"https://arbitrary3.github.io/youtube-homepage",["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS"]],
-                    ["Tetris game", "Made using ReactJS framework. The game controls are designed to be smooth and fast-paced for a better gaming experience.", tetris, "https://arbitrary3.github.io/tetris", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS", "Game Development"]],
-                    ["Restaurant Landing Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", landing, "https://arbitrary3.github.io/seafood-and-grills", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS"]],
-                    ["My Portfolio Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", portfolio, "https://arbitrary3.github.io/portfolio", ["HTML", "CSS", "TypeScript", "ReactJS","Responsive Web Design","Tailwind CSS", "UI/UX"]],
+                    ["YouTube Clone", "A clone of the official YouTube homepage.  Videos shown on the homepage changes based on the current trending videos.", youtube,"https://arbitrary3.github.io/youtube-homepage",["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS","SSR"],"https://github.com/arbitrary3/youtube-homepage/"],
+                    ["Tetris game", "Made using ReactJS framework. The game controls are designed to be smooth and fast-paced for a better gaming experience.", tetris, "https://arbitrary3.github.io/tetris", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS", "Game Development","SSR"],"https://github.com/arbitrary3/tetris"],
+                    ["Restaurant Landing Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", landing, "https://arbitrary3.github.io/seafood-and-grills", ["HTML", "CSS", "JavaScript", "ReactJS","Responsive Web Design","Tailwind CSS","SSR"],"https://github.com/arbitrary3/seafood-and-grills"],
+                    ["My Portfolio Page", "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum", portfolio, "https://arbitrary3.github.io/portfolio", ["HTML", "CSS", "TypeScript", "ReactJS","Responsive Web Design","Tailwind CSS", "UI/UX","SSR"],"https://github.com/arbitrary3/portfolio"],
                 ])}
             </div>
         </div>

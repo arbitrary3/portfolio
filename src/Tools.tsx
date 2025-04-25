@@ -105,7 +105,7 @@ export default function Tools({ screenMode }: TypeScreenMode) {
             return (
                 <div key={index} className={`${screenMode >= 3 ? "" : "max-w-[320px]"} w-full hover:scale-105 transform transition-transform duration-300 h-300px] flex flex-col gap-[30px] justify-between items-center bg-[#3a1a92]/80 px-[30px] pt-[30px] pb-[50px] rounded-2xl`}>
                     <div className="flex justify-center items-center w-[80px] h-[80px] bg-white rounded-[50px] shadow-[0px_0px_60px_rgba(0,0,0,0.5)]">
-                      <img src={card[2]} className={`${index === 1 ? "w-[45%]" : "w-[65%]"} m-auto`} />
+                      <img src={card[2]} className={`${index === 2 ? "hover:scale-180 w-[100%]" : "hover:scale-160 w-[85%]"} transform transition-transform duration-300 m-auto`} />
                     </div>
                     <p className="font-bold text-[18px] text-center">{card[0]}</p>
                     <p className="font-[300] text-gray-300 text-[16px] text-center">{card[1]}</p>

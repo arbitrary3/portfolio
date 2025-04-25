@@ -35,7 +35,7 @@ export default function About({ screenMode }: TypeScreenMode) {
                     I am a Web Developer based in Tacloban City, Philippines.
                 </p>
                 <p className={`${screenMode >= 3 ? "text-center" : ""} text-[20px] text-gray-400 font-[300] tracking-wide leading-[1.3em]`}>
-                    I approach my developing process with accuracy and precision to the wireframe, meticulously making sure as much as detail as possible is accurate to the desired output. I mainly use ReactJS, but I'm not against stepping out of my comfort zone with using other frameworks like Vue.
+                    I approach my developing process with accuracy and precision to the wireframe, meticulously making sure as much as detail as possible is accurate to the desired output. I mainly use ReactJS, but I'm not against stepping out of my comfort zone like using other frameworks such as Vue.
                 </p>
 
                 <div className="flex flex-col gap-[20px]">
