@@ -2,6 +2,7 @@ import fcc1 from './assets/icons/fcc1.png';
 import fcc2 from './assets/icons/fcc2.png';
 import fcc3 from './assets/icons/fcc3.png';
 import fcc4 from './assets/icons/fcc4.png';
+import about from './assets/images/about.png';
 //import fcc from './assets/icons/fcc.png';
 
 type TypeScreenMode = { screenMode: number; }
@@ -51,9 +52,13 @@ export default function About({ screenMode }: TypeScreenMode) {
                 </div>
             </div>
 
+
             {screenMode < 3 ? (
-                    <div className="relative about-gradient aspect-square h-[65%] rounded-[50%] my-auto">
-                        <div className="absolute top-0 left-[50%] w-[110%] h-full aspect-auto about-gradient"></div>
+                    <div className={`${screenMode < 1 ? "h-[65%] my-auto" : "w-[100%]"} relative about-gradient aspect-square rounded-[50%]`}>
+                        <div className="absolute top-0 left-[50%] w-[110%] h-full aspect-auto about-gradient z-10"></div>
+                        <a href="https://www.pngitem.com/middle/Tbhhm_frontend-development-web-design-website-clipart-hd-png/">
+                            <img className={`${screenMode < 1 ? "w-[100%]" : "scale-65 ml-[-34%]"} absolute top-[5%] left-[38%] z-40 m-auto`} src={about} />
+                        </a>
                     </div>
                 ) : null
         }
